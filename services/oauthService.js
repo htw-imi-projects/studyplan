@@ -16,21 +16,24 @@ if (process.env.NODE_ENV == "production") {
   let gmailAccessToken = oauth2Client.getAccessToken();
   console.log("accesstoken", gmailAccessToken);
   console.log("refreshToken", refreshToken);
-
-  let gmailTransporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      type: "OAuth2",
-      user: "studyplanhtwberlin@gmail.com",
-      clientId: clientID,
-      clientSecret: clientSecret,
-      refreshToken: refreshToken,
-      accessToken: gmailAccessToken,
-      tls: {
-        rejectUnauthorized: false,
+  let gmailTransporter;
+  if (gmailAccessToken) {
+    console.log("accesstoken2", gmailAccessToken);
+    gmailTransporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        type: "OAuth2",
+        user: "studyplanhtwberlin@gmail.com",
+        clientId: clientID,
+        clientSecret: clientSecret,
+        refreshToken: refreshToken,
+        accessToken: gmailAccessToken,
+        tls: {
+          rejectUnauthorized: false,
+        },
       },
-    },
-  });
+    });
+  }
 
   module.exports = {
     gmailTransporter: gmailTransporter,
