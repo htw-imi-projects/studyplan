@@ -13,7 +13,12 @@ if (process.env.NODE_ENV == "production") {
   oauth2Client.setCredentials({
     refresh_token: refreshToken,
   });
-  let gmailAccessToken = oauth2Client.getAccessToken();
+  let gmailAccessToken = async function () {
+    return await oauth2Client.getAccessToken().then((token) => {
+      return token;
+    });
+  };
+
   console.log("accesstoken", gmailAccessToken);
   console.log("refreshToken", refreshToken);
   let gmailTransporter;
