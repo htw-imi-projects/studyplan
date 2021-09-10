@@ -16,7 +16,10 @@ if (process.env.NODE_ENV == "production") {
   // eslint-disable-next-line no-unused-vars
   const gmailAccessToken = new Promise((resolve, reject) => {
     oauth2Client.getAccessToken((err, token) => {
-      if (err) console.log(err);
+      if (err) {
+        console.log(err);
+        reject();
+      }
       // Handling the errors
       else resolve(token);
     });
