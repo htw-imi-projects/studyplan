@@ -16,30 +16,7 @@ if (process.env.NODE_ENV == "production") {
   // eslint-disable-next-line no-unused-vars
 
   // Request refreshed tokens from Google
-  let gmailAccessToken = oauth2Client.getAccessToken(function (
-    err,
-    tokens,
-    res
-  ) {
-    if (err) {
-      console.log("getAccessToken error: " + err);
-      return undefined;
-    } else {
-      console.log("tokens: " + JSON.stringify(tokens, null, 2)); //DEBUG
-      if (res && res.data) {
-        //console.log("results: ", util.inspect(res));  // DEBUG:
-        if (Object.prototype.hasOwnProperty.call(res.data, "id_token")) {
-          // We return all of res.data, but it's id_token that we're really after
-          console.log("res.data: " + JSON.stringify(res.data, null, 2)); // DEBUG:
-          return res.data;
-        }
-      } else {
-        // Only token returned, no res
-        console.log("No refresh"); // DEBUG:
-        return undefined;
-      }
-    }
-  }); // oauth2Client.getAccessToken()
+  let gmailAccessToken = oauth2Client.getAccessToken();
 
   console.log("accesstoken", gmailAccessToken);
   console.log("refreshToken", refreshToken);
