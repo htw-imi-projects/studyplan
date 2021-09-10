@@ -18,7 +18,7 @@ if (process.env.NODE_ENV == "production") {
     oauth2Client.getAccessToken((err, token) => {
       if (err) {
         console.log(err);
-        reject();
+        resolve("miau");
       }
       // Handling the errors
       else resolve(token);
