@@ -14,17 +14,27 @@ if (process.env.NODE_ENV == "production") {
     refresh_token: refreshToken,
   });
   // eslint-disable-next-line no-unused-vars
-  const gmailAccessToken = new Promise((resolve, reject) => {
-    oauth2Client.getAccessToken((err, token) => {
-      if (err) {
-        console.log(err);
-        resolve("miau");
-      }
-      // Handling the errors
-      else resolve(token);
+  const getToken = function () {
+    return new Promise((resolve, reject) => {
+      oauth2Client.getAccessToken((err, token) => {
+        if (err) {
+          console.log(err);
+          reject("miau");
+        }
+        // Handling the errors
+        else resolve(token);
+      });
     });
-  });
+  };
 
+  var gmailAccessToken = getToken();
+  gmailAccessToken
+    .then(() => {
+      console.log("resolved");
+    })
+    .catch(() => {
+      console.log("Rejected");
+    });
   console.log("accesstoken", gmailAccessToken);
   console.log("refreshToken", refreshToken);
   let gmailTransporter;
