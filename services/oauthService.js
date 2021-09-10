@@ -13,11 +13,14 @@ if (process.env.NODE_ENV == "production") {
   oauth2Client.setCredentials({
     refresh_token: refreshToken,
   });
-  let gmailAccessToken = async function () {
-    return await oauth2Client.getAccessToken().then((token) => {
-      return token;
+  // eslint-disable-next-line no-unused-vars
+  const gmailAccessToken = new Promise((resolve, reject) => {
+    oauth2Client.getAccessToken((err, token) => {
+      if (err) console.log(err);
+      // Handling the errors
+      else resolve(token);
     });
-  };
+  });
 
   console.log("accesstoken", gmailAccessToken);
   console.log("refreshToken", refreshToken);
