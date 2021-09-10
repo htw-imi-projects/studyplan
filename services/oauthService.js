@@ -13,9 +13,11 @@ if (process.env.NODE_ENV == "production") {
   oauth2Client.setCredentials({
     refresh_token: refreshToken,
   });
-  const gmailAccessToken = oauth2Client.getAccessToken();
+  let gmailAccessToken = oauth2Client.getAccessToken();
+  console.log("accesstoken", gmailAccessToken);
+  console.log("refreshToken", refreshToken);
 
-  const gmailTransporter = nodemailer.createTransport({
+  let gmailTransporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       type: "OAuth2",
