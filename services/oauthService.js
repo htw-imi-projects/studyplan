@@ -11,19 +11,19 @@ const oauth2Client = new OAuth2(clientID, clientSecret, redirectURL);
 
 if (process.env.NODE_ENV == "production") {
   oauth2Client.setCredentials({
-    refresh_token: refreshToken
+    refresh_token: refreshToken,
   });
   // eslint-disable-next-line no-unused-vars
 
-
   const getToken = async () => {
     const { token } = await oauth2Client.getAccessToken();
-  
-    if (!token) {
-      return undefinded;
-    }
 
-  let gmailAccessToken = getToken(); 
+    if (!token) {
+      return undefined;
+    }
+  };
+
+  let gmailAccessToken = getToken();
 
   console.log("accesstoken", gmailAccessToken);
   console.log("refreshToken", refreshToken);
@@ -40,13 +40,13 @@ if (process.env.NODE_ENV == "production") {
         refreshToken: refreshToken,
         accessToken: gmailAccessToken,
         tls: {
-          rejectUnauthorized: false
-        }
-      }
+          rejectUnauthorized: false,
+        },
+      },
     });
   }
 
   module.exports = {
-    gmailTransporter: gmailTransporter
+    gmailTransporter: gmailTransporter,
   };
 }
