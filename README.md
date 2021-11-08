@@ -2,6 +2,9 @@
 
 This is a Bachelor thesis project based on the MEVN stack with the goal to enhance the process of planning your studies. Students can see all courses that they need to complete during their studies and are free to plan their semesters. 
 
+Deployed on Heroku: [https://studyplan.herokuapp.com](https://studyplan.herokuapp.com)
+
+
 
 ## Project setup for Frontend
 ```
