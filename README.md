@@ -1,29 +1,33 @@
 # studyplan
 
-## Project setup
+This is a Bachelor thesis project based on the MEVN stack with the goal to enhance the process of planning your studies. Students can see all courses that they need to complete during their studies and are free to plan their semesters. 
+
+
+## Project setup for Frontend
+```
+cd client
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+cd client
+npm run serve
+```
+
+## Project setup for Backend
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+nodemon serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Screenshots
 
-### Run your unit tests
-```
-npm run test:unit
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+![](https://github.com/htw-imi-projects/studyplan/blob/main/studyplan_screenshot.png)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](https://github.com/htw-imi-projects/studyplan/blob/main/studyplan_coursedetail_screenshot.png)
