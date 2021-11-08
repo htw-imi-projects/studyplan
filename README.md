@@ -4,6 +4,10 @@ This is a Bachelor thesis project based on the MEVN stack with the goal to enhan
 
 Deployed on Heroku: [https://studyplan.herokuapp.com](https://studyplan.herokuapp.com)
 
+__Test User__ 
+
+User: *test*, Password: *test*
+
 
 
 ## Project setup for Frontend
